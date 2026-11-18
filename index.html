@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111318">
+  <meta name="description" content="Guarda vídeos públicos de X cuando tengas derecho a descargarlos.">
+  <title>X Video Downloader</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="logo">X<span>↓</span></div>
+      <div class="top-label">VIDEO DOWNLOADER <i> PWA</i></div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">DESCARGA PERSONAL</div>
+      <h1>Tu vídeo.<br><span>En tu dispositivo.</span></h1>
+      <p class="intro">Pega el enlace de una publicación pública de X y descarga el vídeo cuando tengas permiso para guardarlo.</p>
+    </section>
+
+    <section class="panel">
+      <label for="videoUrl">ENLACE DE X</label>
+      <div class="input-wrap">
+        <input id="videoUrl" type="url" autocomplete="url" spellcheck="false"
+          placeholder="https://x.com/usuario/status/..." />
+        <button id="pasteBtn" class="paste" type="button" aria-label="Pegar enlace">Pegar</button>
+      </div>
+      <button id="downloadBtn" class="primary" type="button">
+        <span id="buttonText">Descargar vídeo</span><span aria-hidden="true"> ↗</span>
+      </button>
+      <div id="status" class="status" role="status" aria-live="polite">Listo para recibir un enlace.</div>
+      <div id="progress" class="progress" hidden><span></span></div>
+    </section>
+
+    <section class="note">
+      <div class="note-icon">i</div>
+      <p><strong>Cómo funciona</strong><br>La PWA se publica en GitHub Pages. Para procesar enlaces necesita una API externa configurada en el proyecto; GitHub Pages no ejecuta Python ni descarga el vídeo por sí mismo.</p>
+    </section>
+
+    <footer>
+      <span>VERSIÓN 1.0</span>
+      <span>Hecho para móvil y escritorio</span>
+    </footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
