@@ -17,9 +17,11 @@ function setStatus(message, type = "") {
 
 function isXUrl(value) {
   try {
-    const u = new URL(value);
-    return ["x.com", "www.x.com", "twitter.com", "www.twitter.com"].includes(u.hostname.toLowerCase())
-      && /^\/[^/]+\/status\/\d+/.test(u.pathname);
+    const u = new URL(value.trim());
+    const hostOk = ["x.com", "www.x.com", "mobile.x.com", "twitter.com", "www.twitter.com"].includes(u.hostname.toLowerCase());
+    // Admite /usuario/status/ID y el sufijo opcional /video/2.
+    const pathOk = /^\/[^/]+\/status\/\d+(?:\/video\/\d+)?\/?$/.test(u.pathname);
+    return u.protocol === "https:" && hostOk && pathOk;
   } catch { return false; }
 }
 

@@ -22,7 +22,7 @@ def validate_x_url(value):
         return (
             parsed.scheme == "https"
             and parsed.hostname in ALLOWED_HOSTS
-            and re.match(r"^/[^/]+/status/\\d+", parsed.path) is not None
+            and re.match(r"^/[^/]+/status/\d+(?:/video/\d+)?/?$", parsed.path) is not None
         )
     except Exception:
         return False
